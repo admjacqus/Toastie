@@ -13,19 +13,13 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-<?php if ( is_front_page()){
-// Static homepage
-// Hide the header
-
-} else { ?>
-
-<!-- // Everything else -->
+<!-- no title on homepage -->
+<?php if ( ! is_front_page()){ ?>
 <header class="entry-header responsive-max-width">
 <?php get_template_part( 'template-parts/header/entry', 'header' ); ?>
 </header>
 
 <?php }?>
-
 
 	<div class="entry-content">
 		<?php

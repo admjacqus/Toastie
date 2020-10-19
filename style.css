@@ -4094,7 +4094,7 @@ body.admin-bar .widget_eu_cookie_law_widget.widget.top {
 		grid-template-columns: auto;
 		grid-template-rows: auto;
 		grid-column-gap: 16px;
-		grid-template-areas: "site-logo site-logo" "site-title social-navigation" "site-description main-navigation";
+		grid-template-areas: "site-logo site-title social-navigation" "site-logo site-description main-navigation";
 	}
 	.site-header:before, .site-header:after {
 		content: none;

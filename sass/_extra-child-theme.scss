@@ -34,7 +34,66 @@ a {
 	}
 }
 
+.site-header {
+	align-items: center;
+	display: grid;
+	grid-template-columns: 60px auto auto;
+	grid-template-rows: auto;
+	grid-column-gap: $spacing_unit;
+	grid-template-areas:
+	"site-logo site-title main-navigation"
+	"site-logo site-description main-navigation";
+
+	&:before,
+	&:after {
+		content: none;
+		display: none;
+	}
+
+	& > * {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+.site-logo {
+	width: auto;
+	grid-area: site-logo;
+	align-self: self-end;
+}
+
+.site-title {
+	align-self: flex-end;
+	grid-area: site-title;
+
+	& + .site-description {
+		margin-top: 0;
+	}
+}
+
+.site-description {
+	align-self: center;
+	grid-area: site-description;
+}
+
+.main-navigation {
+	align-self: center;
+	grid-area: main-navigation;
+	justify-self: flex-end;
+}
+.main-navigation #toggle:checked ~ div:not(.woocommerce-menu-container) {
+	width: 100%;
+	display: block;
+	position: absolute;
+	background: white;
+	top: 92px;
+	left: 0;
+	padding: 1em;
+	box-shadow: 0 9px 8px rgba(0,0,0,0.25);
+}
+
 .social-navigation {
+	display: none;
 	a {
 		vertical-align: middle;
 	}
@@ -47,6 +106,12 @@ a {
 	}
 }
 
+@media (max-width: 360px){
+	.site-title, .site-description {
+		display: none;
+	}
+}
+
 /**
  * CSS-grid Desktop Menu
  */
@@ -54,12 +119,11 @@ a {
 	.site-header {
 		align-items: center;
 		display: grid;
-		grid-template-columns: auto;
+		grid-template-columns: 100px auto auto;
 		grid-template-rows: auto;
 		grid-column-gap: $spacing_unit;
 		grid-template-areas:
-		"site-logo site-title social-navigation"
-		"site-logo site-description main-navigation";
+		"site-logo site-title social-navigation" "site-logo site-title main-navigation" "site-logo site-description main-navigation";
 
 		&:before,
 		&:after {
@@ -74,8 +138,10 @@ a {
 	}
 
 	.site-logo {
+		width: auto;
 		grid-area: site-logo;
-		margin-bottom: $spacing_unit;
+		margin-right: $spacing_unit;
+		align-self: self-end;
 	}
 
 	.site-title {
@@ -155,6 +221,7 @@ a {
 	}
 
 	.social-navigation {
+		display: block;
 		align-self: center;
 		grid-area: social-navigation;
 		justify-self: flex-end;

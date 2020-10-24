@@ -41,10 +41,8 @@ a {
 	grid-template-rows: auto;
 	grid-column-gap: $spacing_unit;
 	grid-template-areas:
-	"site-logo site-title site-title"
-	"site-logo site-title site-title"
-	"site-logo site-description site-description"
-	"social-navigation main-navigation main-navigation";
+	"site-logo site-title main-navigation"
+	"site-logo site-description main-navigation";
 
 	&:before,
 	&:after {
@@ -82,14 +80,16 @@ a {
 	align-self: center;
 	grid-area: main-navigation;
 	justify-self: flex-end;
-	margin-top: $spacing_unit;
 }
 .main-navigation #toggle:checked ~ div:not(.woocommerce-menu-container) {
+	width: 100%;
 	display: block;
 	position: absolute;
 	background: white;
+	top: 92px;
 	left: 0;
 	padding: 1em;
+	box-shadow: 0 9px 8px rgba(0,0,0,0.25);
 }
 
 .social-navigation {
@@ -103,6 +103,12 @@ a {
 		width: (1.5 * $spacing_unit);
 		height: (1.5 * $spacing_unit);
 		transform: translateZ(0);
+	}
+}
+
+@media (max-width: 360px){
+	.site-title, .site-description {
+		display: none;
 	}
 }
 
@@ -215,7 +221,7 @@ a {
 	}
 
 	.social-navigation {
-		display: blck;
+		display: block;
 		align-self: center;
 		grid-area: social-navigation;
 		justify-self: flex-end;

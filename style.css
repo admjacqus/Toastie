@@ -4079,7 +4079,7 @@ body.admin-bar .widget_eu_cookie_law_widget.widget.top {
 	grid-template-columns: 60px auto auto;
 	grid-template-rows: auto;
 	grid-column-gap: 16px;
-	grid-template-areas: "site-logo site-title site-title" "site-logo site-title site-title" "site-logo site-description site-description" "social-navigation main-navigation main-navigation";
+	grid-template-areas: "site-logo site-title main-navigation" "site-logo site-description main-navigation";
 }
 
 .site-header:before, .site-header:after {
@@ -4116,15 +4116,17 @@ body.admin-bar .widget_eu_cookie_law_widget.widget.top {
 	align-self: center;
 	grid-area: main-navigation;
 	justify-self: flex-end;
-	margin-top: 16px;
 }
 
 .main-navigation #toggle:checked ~ div:not(.woocommerce-menu-container) {
+	width: 100%;
 	display: block;
 	position: absolute;
 	background: white;
+	top: 92px;
 	left: 0;
 	padding: 1em;
+	box-shadow: 0 9px 8px rgba(0, 0, 0, 0.25);
 }
 
 .social-navigation {
@@ -4140,6 +4142,12 @@ body.admin-bar .widget_eu_cookie_law_widget.widget.top {
 	width: 24px;
 	height: 24px;
 	transform: translateZ(0);
+}
+
+@media (max-width: 360px) {
+	.site-title, .site-description {
+		display: none;
+	}
 }
 
 /**
@@ -4238,7 +4246,7 @@ body.admin-bar .widget_eu_cookie_law_widget.widget.top {
 		background: #5b0b21;
 	}
 	.social-navigation {
-		display: blck;
+		display: block;
 		align-self: center;
 		grid-area: social-navigation;
 		justify-self: flex-end;
